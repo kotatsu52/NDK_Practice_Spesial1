@@ -46,8 +46,8 @@ class CircleView extends View {
 
 	 // 実際に描画を行うメソッド
 	 protected void onDraw(Canvas canvas) {
-	     float[] x = new float[360];
-	     float[] y = new float[360];
+	     float[] x = new float[3600];
+	     float[] y = new float[3600];
 	     int i = 0;
 	     float r = 100.0f;
 	     float x_offset = 150.0f, y_offset = 150.0f;
@@ -64,14 +64,14 @@ class CircleView extends View {
 	     //---------------------------//
 	     long start = System.currentTimeMillis();
 	     //円座標取得処理
-	     for( i = 0 ; i < 360 ; i++ ){
-	    	 x[i] = r * (float)Math.cos(2*Math.PI*(double)i/360.0f) + x_offset;
-	    	 y[i] = r * (float)Math.sin(2*Math.PI*(double)i/360.0f) + y_offset;
+	     for( i = 0 ; i < 3600 ; i++ ){
+	    	 x[i] = r * (float)Math.cos(2*Math.PI*(double)i/3600.0f) + x_offset;
+	    	 y[i] = r * (float)Math.sin(2*Math.PI*(double)i/3600.0f) + y_offset;
 	     }
 	     long stop = System.currentTimeMillis();
 	     paint.setTextSize(30);
 	     canvas.drawText("JAVA処理速度:"+(stop-start)+"ms", 0, 30, paint);
-	     for( i = 0 ; i < 360 ; i++ ){
+	     for( i = 0 ; i < 3600 ; i++ ){
 	    	 if( i == 0 ){
 	    		 path.moveTo(x[i], y[i]);
 	    	 }else{
@@ -85,7 +85,7 @@ class CircleView extends View {
 	     //---------------------------//
 	     time = circle_xy(x,y);	     
 	     canvas.drawText("NDK処理速度:"+time+"ms", 0, 280, paint);
-	     for( i = 0 ; i < 360 ; i++ ){
+	     for( i = 0 ; i < 3600 ; i++ ){
 	    	 if( i == 0 ){
 	    		 path.moveTo(x[i], y[i]);
 	    	 }else{

@@ -15,7 +15,7 @@ Java_my_kotatsu_ndk_1spesial1_CircleView_circle_1xy( JNIEnv* env, jobject thiz, 
 
 	start = clock();
     //★円座標取得処理
-    
+
 	stop = clock();
 
 	(*env)->ReleaseFloatArrayElements(env,xbuf,x,0);
